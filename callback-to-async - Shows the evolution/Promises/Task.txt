@@ -38,3 +38,15 @@ alarm()
     .then(() => sleepMode())
     .then(() => console.log("Day complete! Kal phir alarm bajega"))
     .catch((err) => console.log("Kuch toh gadbad hua:", err));
+    //NOTE - task 2
+    function brush() {
+    // tera code yahan
+}
+
+function breakfast() {
+    // tera code yahan
+}
+
+function catchBus() {
+    // tera code yahan
+}
