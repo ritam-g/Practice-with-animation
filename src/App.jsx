@@ -1,14 +1,11 @@
-// src/App.jsx
-
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-
-// Import your page components
 import Header from './components/layout/Header';
 import Footer from './components/layout/Footer';
 import HomePage from './pages/HomePage';
 import RecipeDetailPage from './pages/RecipeDetailPage';
 import ShoppingListPage from './pages/ShoppingListPage';
+import FavoritesPage from './pages/FavoritesPage';
 import NotFoundPage from './pages/NotFoundPage';
 
 function App() {
@@ -17,12 +14,11 @@ function App() {
       <Header />
 
       <main className="flex-grow">
-        {/* Define your application routes here */}
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/recipe/:id" element={<RecipeDetailPage />} /> 
+          <Route path="/favorites" element={<FavoritesPage />} />
           <Route path="/shopping-list" element={<ShoppingListPage />} />
-          {/* Catch-all route */}
           <Route path="*" element={<NotFoundPage />} /> 
         </Routes>
       </main>
@@ -32,5 +28,4 @@ function App() {
   );
 }
 
-// 🔑 THE CRUCIAL FIX: Default export matches the import in main.jsx
 export default App;
