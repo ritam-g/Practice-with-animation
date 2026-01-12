@@ -1,33 +1,32 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React from 'react'
 
 function App() {
-  const [count, setCount] = useState(0)
-
+  
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <main className="relative w-screen h-screen overflow-hidden">
+
+  {/* TOP IMAGE (always visible) */}
+  <div className="top absolute inset-0 bg-[url(https://fandomwire.com/wp-content/uploads/2020/07/tony-stark-iron-man-750x400-1.jpg)] bg-cover bg-center z-20" />
+
+  {/* BACKGROUND IMAGE (revealed only via mask) */}
+  <div
+    className="background absolute  inset-0 bg-[url(https://i.redd.it/fk52qldtbl461.jpg)] bg-cover bg-center z-20"
+    onMouseMove={(e) => {
+    const x = e.clientX;
+    const y = e.clientY;
+
+    e.currentTarget.style.maskImage =
+      `radial-gradient(circle 150px at ${x}px ${y}px, white 50%, transparent 100%)`;
+  }}
+  onMouseLeave={(e) => {
+    e.currentTarget.style.maskImage = "none";
+  }}
+  />
+
+</main>
+
+
     </>
   )
 }
